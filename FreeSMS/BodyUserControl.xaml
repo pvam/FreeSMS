@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="FreeSMS.BodyUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480" Loaded="UserControl_Loaded">
+    
+    <Grid>         
+        <TextBlock TextWrapping="Wrap" Foreground="{StaticResource PhoneForegroundBrush}" Height="230" HorizontalAlignment="Left" Margin="12,86,0,0" Name="textBlock1" Text="" VerticalAlignment="Top" Width="456" FontSize="30" />
+        <Grid Height="80" HorizontalAlignment="Left" Name="grid1" VerticalAlignment="Top" Width="480" />
+        <Image Height="146" HorizontalAlignment="Left" Margin="0,322,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="480" Source="/FreeSMS;component/Images/promo.png" Tap="image1_Tap" />
+        <!--<ad:AdControl Visibility="Visible" x:Name="adcontrol2" ApplicationId="2f09db06-44c6-4c3e-a0a7-897cdc50f0ce" AdUnitId="10038864" Width="480" Height="80" Margin="0,36,0,364" />-->
+    </Grid>
+</UserControl>

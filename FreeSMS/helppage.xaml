@@ -1,0 +1,79 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="FreeSMS.helppage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="Black"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Foreground="{StaticResource PhoneAccentBrush}" x:Name="ApplicationTitle" Text="Free SMS" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Foreground="{StaticResource PhoneAccentBrush}" x:Name="PageTitle" Text="Do you know?" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="64" />
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" Background="White">
+            <ListBox FontSize="24" Foreground="Black" Grid.Row="1">
+                <ListBoxItem  Margin="{StaticResource PhoneMargin}">
+                    <TextBlock TextWrapping="Wrap" Text="• Now you can pin your contacts to start screen to quickly send a text!" />
+                </ListBoxItem>
+                <ListBoxItem  Margin="{StaticResource PhoneMargin}">
+                    <TextBlock TextWrapping="Wrap" Text="• You could send a message with unlimited no of chars ,If it exceeds the limit of a particular service it will be sent as Multiple Messages !!" />
+                </ListBoxItem>
+                <ListBoxItem Margin="{StaticResource PhoneMargin}">
+                    <TextBlock TextWrapping="Wrap" Text="• You can pick up number from your People Hub" />
+                </ListBoxItem>
+                <ListBoxItem Margin="{StaticResource PhoneMargin}">
+                    <TextBlock TextWrapping="Wrap" Text="• This app group SMS feature lets you send one message to max 10 people at a time !!" />
+                </ListBoxItem>
+                <ListBoxItem Margin="{StaticResource PhoneMargin}">
+                    <TextBlock TextWrapping="Wrap" Text="• Lazy to type a message !? Yes,this app can send SMS using your voice ,Just speak what to send.Its as simple as that!" />
+                </ListBoxItem>
+                <ListBoxItem Margin="{StaticResource PhoneMargin}">
+                    <TextBlock TextWrapping="Wrap" Text="• Using this app you could also schedule texts ,Time to suprise your girl friend/friend by wishing him midnight! (beta stage)" />
+                </ListBoxItem>
+                <ListBoxItem Margin="{StaticResource PhoneMargin}">
+                    <TextBlock TextWrapping="Wrap" Text="• Login once, Use forever!!" />
+                </ListBoxItem>
+                <ListBoxItem Margin="{StaticResource PhoneMargin}">
+                    <TextBlock TextWrapping="Wrap" Text="• We recommend you to use way2sms/160by2 for fast and  accurate delivery" />
+                </ListBoxItem>
+                <ListBoxItem Margin="{StaticResource PhoneMargin}">
+                    <TextBlock TextWrapping="Wrap" Text="• Dont have net connection? You can still use it as for one SMS it uses just 5 KB ,which may charge 1P/2P .So is not that better than activating SMS packs?!" />
+                </ListBoxItem>
+                <ListBoxItem Margin="{StaticResource PhoneMargin}">
+                    <TextBlock TextWrapping="Wrap" Text="Enjoy all these for free,please support the developers by clicking ads in app" FontWeight="Bold"  />
+                </ListBoxItem>
+                <ListBoxItem Margin="{StaticResource PhoneMargin}">
+                    <TextBlock TextWrapping="Wrap" Text="feature requests, bugs mail them to FreeSMSsupport@live.in" FontWeight="Bold" />
+                </ListBoxItem>
+                <ListBoxItem Margin="{StaticResource PhoneMargin}">
+                    <TextBlock Text="" />
+                </ListBoxItem>
+            </ListBox>
+        </Grid>
+    </Grid>
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" BackgroundColor="{StaticResource PhoneAccentColor}" ForegroundColor="White" Opacity="0.735">
+            <shell:ApplicationBarIconButton Click="ApplicationBarIconButton_Click" IconUri="/Images/rate.png" Text="rate app"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

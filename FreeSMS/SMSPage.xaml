@@ -1,0 +1,94 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:edc="clr-namespace:Microsoft.Expression.Controls;assembly=Microsoft.Expression.Drawing"
+    xmlns:Controls="clr-namespace:Coding4Fun.Phone.Controls;assembly=Coding4Fun.Phone.Controls"
+    xmlns:sltoolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:Converters="clr-namespace:Coding4Fun.Phone.Controls.Converters;assembly=Coding4Fun.Phone.Controls"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:my="clr-namespace:System.Windows.Controls;assembly=WindowsPhoneWatermarkTextBoxControl"
+    xmlns:em="clr-namespace:Microsoft.Expression.Media;assembly=Microsoft.Expression.Drawing" 
+    x:Class="FreeSMS.SMSPage"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
+
+<!--Sample code showing usage of ApplicationBar-->
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+        	<RowDefinition Height="Auto"/>
+        	<RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <controls:Pivot SelectionChanged="pivot_SelectionChanged" Title="" Name="pivot" Foreground="{StaticResource PhoneAccentBrush}">
+            <controls:PivotItem Header="compose" Foreground="{StaticResource PhoneAccentBrush}" Margin="0,28,0,-46">
+                <!--TitlePanel contains the name of the application and page title-->
+                <!--ContentPanel - place additional content here-->
+                <Grid x:Name="ContentPanel" Grid.RowSpan="2"  Height="673">
+                    <!--<ad:AdControl ApplicationId="2f09db06-44c6-4c3e-a0a7-897cdc50f0ce" AdUnitId="10038813" Width="480" Height="80"  Margin="-15,0,-9,-12"  />-->
+                    <TextBlock Style="{StaticResource PhoneTextAccentStyle}" HorizontalAlignment="Left" Margin="8,8,0,0" x:Name="textBlock1" Text="To: " Width="39" FontSize="26.667" Height="43" VerticalAlignment="Top" RenderTransformOrigin="0.538,-0.395" />
+                    <Line X1="15" Y1="190" X2="475" Y2="190" Margin="0,-122,-8,27" Stroke="{StaticResource PhoneAccentBrush}" StrokeThickness="2" />
+                    <TextBox TextWrapping="Wrap" AcceptsReturn="False" InputScope="Number" Height="78" HorizontalAlignment="Left" Margin="67,-10,0,0" x:Name="textBox1" Text="" VerticalAlignment="Top" Width="347" BorderBrush="Transparent" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" />
+                    <edc:Callout x:Name="message" Foreground="Black" AnchorPoint="0,1.4" FontSize="20" Height="226" Margin="8,0,8,315" Stroke="{StaticResource PhoneAccentBrush}" StrokeThickness="2" VerticalAlignment="Bottom" d:LayoutOverrides="GridBox">
+                        <my:WatermarkTextBox WatermarkText="              type a message" TextWrapping="Wrap" HorizontalAlignment="Left" x:Name="textBox2" Width="448" MaxLength="0" AcceptsReturn="True" BorderBrush="Transparent" Background="{StaticResource TransparentBrush}" VerticalScrollBarVisibility="Auto" d:LayoutOverrides="GridBox" Height="188" />
+                    </edc:Callout>
+                    <!--<TextBox TextWrapping="Wrap" Height="157" HorizontalAlignment="Left" Margin="9,170,0,0" Name="textBox2" Text="" VerticalAlignment="Top" Width="440" MaxLength="0" AcceptsReturn="True" BorderBrush="Transparent" />-->
+                    <Button Content="" Height="68" HorizontalAlignment="Right" x:Name="button1" VerticalAlignment="Top" Width="68" Click="button1_Click" FontSize="24" BorderBrush="Transparent" RenderTransformOrigin="0.574,0.353" Margin="0,-10,0,0">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/FreeSMS;component/Images/add.png" />
+                        </Button.Background>
+                    </Button>
+                    <CheckBox FontSize="26.667" Foreground="Maroon" Content="Future SMS?" Height="76" HorizontalAlignment="Left" Margin="256,358,0,0" x:Name="checkBox1" VerticalAlignment="Top" Width="216" Checked="checkBox1_Checked" Unchecked="checkBox1_Unchecked" d:LayoutOverrides="GridBox" />
+                    <toolkit:DatePicker FontSize="26" Foreground="Black" Margin="217,434,90,178" x:Name="datePicker" Value="05/12/2012" IsEnabled="True" d:LayoutOverrides="GridBox" Visibility="Collapsed" />
+                    <toolkit:TimePicker FontSize="26" Foreground="Black" Margin="215.038,488.042,94.038,130.042" x:Name="timePicker" d:LayoutOverrides="GridBox" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Visibility="Collapsed" >
+                    	<toolkit:TimePicker.RenderTransform>
+                    		<CompositeTransform Rotation="0.485"/>
+                    	</toolkit:TimePicker.RenderTransform>
+                    </toolkit:TimePicker>
+                    <TextBlock FontSize="30" Foreground="Maroon" Height="55" HorizontalAlignment="Left" Margin="121,447,0,0" x:Name="textBlock2" Text="date:" VerticalAlignment="Top" Width="96" d:LayoutOverrides="GridBox" Visibility="Collapsed" />
+                    <TextBlock FontSize="30" Foreground="Maroon" Height="54" HorizontalAlignment="Left" Margin="121,499,0,0" x:Name="textBlock3" Text="time:" VerticalAlignment="Top" Width="96" d:LayoutOverrides="GridBox" Visibility="Collapsed" />
+                    <!--<Grid Height="80" HorizontalAlignment="Left" Name="grid1" VerticalAlignment="Top" Width="480" />-->
+                    <!--<Controls:ChatBubbleTextBox  Foreground="Black" Background="Orange" x:Name="textBox2" ChatBubbleDirection="LowerRight" TextWrapping="Wrap" Margin="0,201,-12,85" BorderBrush="DeepSkyBlue" AcceptsReturn="True"></Controls:ChatBubbleTextBox>-->
+                    <Controls:ProgressOverlay Name="progressOverlay" Visibility="{Binding OverlayVis}" Margin="0,-134,0,-127">
+                        <Controls:ProgressOverlay.Resources>
+                            <Converters:VisibilityToBooleanConverter x:Key="VisToBoolConverter" />
+                        </Controls:ProgressOverlay.Resources>
+                        <StackPanel Height="525">
+                            <Grid x:Name="grid3" Height="80" Width="480" />
+                            <TextBlock HorizontalAlignment="Center" Foreground="White"><Run Text="Sending" /></TextBlock>
+                            <toolkit:PerformanceProgressBar IsIndeterminate="{Binding Visibility, Converter={StaticResource VisToBoolConverter}, ElementName=progressOverlay}" Height="60" Width="480" Foreground="{StaticResource PhoneAccentBrush}" />
+                            <Grid x:Name="grid4" Width="480" Height="80" />
+                        </StackPanel>
+                    </Controls:ProgressOverlay>
+                    <Grid Height="80" HorizontalAlignment="Left" Name="grid2" VerticalAlignment="Bottom" Width="480" d:LayoutOverrides="GridBox" Margin="0,0,0,120" />
+                </Grid>
+            </controls:PivotItem>
+            <controls:PivotItem Header="sent">
+                <Grid>
+                    <ListBox Foreground="Black" Name="sentbox" HorizontalAlignment="Left" Height="628" VerticalAlignment="Top" Width="458">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock FontSize="22" Text="{Binding no}" TextWrapping="Wrap" />
+                                    <TextBlock FontSize="32" Text="{Binding text}" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+        </controls:Pivot>
+        
+    </Grid>
+   
+
+</phone:PhoneApplicationPage>

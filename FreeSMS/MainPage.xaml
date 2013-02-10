@@ -1,0 +1,58 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="FreeSMS.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True" BackKeyPress="PhoneApplicationPage_BackKeyPress" Loaded="PhoneApplicationPage_Loaded">
+
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="False" IsVisible="False" />
+    </shell:SystemTray.ProgressIndicator>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,0,0,28">
+            <Border Height="15"/>
+            <TextBlock x:Name="ApplicationTitle" Text="FreeSMS" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{StaticResource PhoneAccentBrush}" />
+            <TextBlock x:Name="message" Text="message" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="{StaticResource PhoneAccentBrush}" />
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBox HorizontalAlignment="Stretch" Name="textBoxResult" VerticalAlignment="Top" TextWrapping="Wrap" Margin="0,31,6,0" Height="271" Foreground="Black" BorderBrush="{StaticResource PhoneAccentBrush}" Background="White" FontWeight="Bold" />
+            <Button Content="Speak" Height="88"  Name="buttonDictate" VerticalAlignment="Top" Click="buttonDictate_Click" Margin="84,308,89,0" Background="{StaticResource PhoneAccentBrush}" Foreground="White" BorderBrush="{StaticResource PhoneAccentBrush}" FontWeight="Bold" FontSize="30" />
+            <Button  Visibility="Collapsed" Content="WebSearch" Height="72"  Name="buttonWebSearch" VerticalAlignment="Top" Width="180" Click="buttonWebSearch_Click" />
+            <Button Visibility="Collapsed" Content="TTS Text" Height="72"  Name="buttonTtstext" VerticalAlignment="Top" Width="150" Click="buttonTtstext_Click" />
+            <TextBlock  Visibility="Collapsed" HorizontalAlignment="Stretch" Margin="12,444,26,99" Name="textBlockServerPort" Text="Server Port" />
+            <TextBox  Visibility="Collapsed" HorizontalAlignment="Stretch" Name="textBoxServerIp" Margin="0,338,29,171" />
+            <TextBlock  Visibility="Collapsed" HorizontalAlignment="Stretch" Margin="12,267,12,277" Name="textBlockServerIp" Text="Server IP" />
+            <ListBox  Visibility="Collapsed" Name="listBoxTtsVoice" Margin="9,0,15,348" FontSize="25.333" Foreground="Black" Height="53" VerticalAlignment="Bottom" />
+            <TextBlock  Visibility="Collapsed" HorizontalAlignment="Stretch" Margin="12,0,12,0" Name="textBlockTtsVoice" Text="TTS Voice" VerticalAlignment="Top" />
+            <TextBox Visibility="Collapsed" HorizontalAlignment="Stretch" Name="textBoxServerPort" />
+            <!--<Image Height="72" HorizontalAlignment="Left" Margin="286,450,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="144" Source="/FreeSMS;component/Images/Nuancelogo_light_144x72.png" Visibility="Collapsed" />-->
+            <!--<ad:AdControl x:Name="adcontrol" ApplicationId="2f09db06-44c6-4c3e-a0a7-897cdc50f0ce" AdUnitId="10038865" Width="480" Height="80"  Margin="-13,0,-11,44" VerticalAlignment="Bottom" Visibility="Visible" />-->
+        </Grid>
+    </Grid>
+
+    <!--Sample code showing usage of ApplicationBar-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="{StaticResource PhoneAccentColor}" ForegroundColor="White" Opacity="1">
+            <shell:ApplicationBarIconButton Click="ApplicationBarIconButton_Click" IconUri="/Images/appbar.check.rest.png" Text="done"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
