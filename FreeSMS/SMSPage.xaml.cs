@@ -125,14 +125,14 @@ namespace FreeSMS
 
         private void send(string uid, string password, string message, string no, string ddmmyy, string time)
         {
-            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create("http://ubaid.tk/sms/sms.aspx?uid=" + uid + "&pwd=" + password + "&msg=" + message + "&phone=" + no + "&provider=" + App.service_name + "&future=1" + "&date=" + ddmmyy + "&time=" + time);
+            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create("http://smsserver.azurewebsites.net/home.php?=" + uid + "&pwd=" + password + "&msg=" + message + "&phone=" + no + "&provider=" + App.service_name + "&future=1" + "&date=" + ddmmyy + "&time=" + time);
             httpWebRequest.BeginGetResponse(Response_Completed, httpWebRequest);
         }
 
         public void send(string uid, string password, string message, string no)
         {
 
-            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create("http://ubaid.tk/sms/sms.aspx?uid=" + uid + "&pwd=" + password + "&msg=" + message + "&phone=" + no + "&provider=" + App.service_name);
+            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create("http://smsserver.azurewebsites.net/home.php?=" + uid + "&pwd=" + password + "&msg=" + message + "&phone=" + no + "&provider=" + App.service_name);
             httpWebRequest.BeginGetResponse(Response_Completed, httpWebRequest);
         }
 
